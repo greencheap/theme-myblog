@@ -1,0 +1,24 @@
+{
+    "name": "greencheap/myblog",
+    "type": "greencheap-theme",
+    "version": "1.0.0",
+    "title": "MyBlog",
+    "description": "A great theme to get your business started.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "GreenCheap",
+            "email": "support@greencheap.net",
+            "homepage": "https://greencheap.net"
+        }
+    ],
+    "extra": {
+        "image": "image.jpg"
+    },
+    "archive": {
+        "exclude": [
+            "node_modules",
+            "!/app"
+        ]
+    }
+}

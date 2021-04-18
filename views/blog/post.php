@@ -21,8 +21,17 @@ $lastPost = $theme_blog->getlastPost();
                 </ul>
             </div>
         </div>
+
+        <div>
+            <ul uk-grid>
+                <li><a href="https://www.linkedin.com/shareArticle?url=<?= $view->url("@blog/id", ["id" => $post->id], 0) ?>
+" target="_blank" uk-icon="linkedin"></a></li>
+                <li><a href="https://twitter.com/intent/tweet?text=<?= $post->title . " " . $view->url("@blog/id", ["id" => $post->id], 0) ?>" target="_blank" uk-icon="twitter"></a></li>
+                <li><a href="mailto:?body=<?= $post->title . " " . $view->url("@blog/id", ["id" => $post->id], 0) ?>"uk-icon="mail"></a></li>
+            </ul>
+        </div>
     
-        <h1 class="uk-heading-small uk-text-bold uk-margin"><a class="uk-link-reset" href="<?= $view->url("@blog/id", ["id" => $post->id]) ?>"><?= $post->title ?></a></h1>
+        <h1 class="uk-heading-small uk-text-bold uk-margin"><?= $post->title ?></h1>
 
         <?php if ($post->excerpt): ?>
             <div class="uk-margin tm-text"><?= $post->excerpt ?></div>
@@ -30,7 +39,7 @@ $lastPost = $theme_blog->getlastPost();
     </div>
 
     <?php if ($image = $post->get("image.src")): ?>
-        <a class="uk-display-block uk-margin-large" href="<?= $view->url("@blog/id", ["id" => $post->id]) ?>"><img src="<?= $image ?>" alt="<?= $post->get("image.alt") ?>" width="100%"></a>
+        <img src="<?= $image ?>" alt="<?= $post->get("image.alt") ?>" width="100%">
     <?php endif; ?>
 
     <div class="uk-container uk-container-xsmall uk-margin">

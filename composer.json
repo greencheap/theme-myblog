@@ -1,7 +1,7 @@
 {
     "name": "greencheap/myblog",
     "type": "greencheap-theme",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "MyBlog",
     "description": "A simple theme that will allow you to share your blogs with people",
     "license": "MIT",

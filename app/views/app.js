@@ -4,6 +4,18 @@ import "../../assets/less/theme.less";
 window.addEventListener("load", () => {
     UIkit.use(Icons);
 
+    var options = {
+        cls: "uk-animation-fade",
+        delay: 400,
+        repeat: true,
+    };
+    UIkit.scrollspy(".uk-navbar", options);
+    UIkit.scrollspy("footer", options);
+    UIkit.scrollspy(".uk-section", options);
+    UIkit.scrollspy(".tm-animation-item", options);
+    UIkit.scrollspy(".uk-article", options);
+    UIkit.scrollspy(".uk-navbar-container", options);
+
     const aElements = document.getElementsByTagName("a");
 
     for (let index = 0; index < aElements.length; index++) {
@@ -14,10 +26,9 @@ window.addEventListener("load", () => {
                 var bodyElement = document.getElementById("isbody");
                 bodyElement.classList.add("uk-animation-reverse");
                 bodyElement.classList.add("uk-animation-fade");
-                //bodyElement.classList.add("uk-animation-fast");
                 setTimeout(() => {
                     window.location = event.target.href;
-                }, 200);
+                }, 1000);
             }
         });
     }

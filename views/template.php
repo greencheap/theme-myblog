@@ -145,19 +145,6 @@
         <?php if ($view->position()->exists("footer")): ?>
             <?= $view->position("footer", "positions/position-default.php") ?>
         <?php endif; ?> 
-
-        <script>
-            var options = {
-                cls: "uk-animation-fade",
-                delay: 400,
-                repeat: true,
-            };
-            UIkit.scrollspy("body", options);
-            UIkit.scrollspy(".uk-navbar", options);
-            UIkit.scrollspy(".tm-animation-item", options);
-            UIkit.scrollspy(".uk-article", options);
-            UIkit.scrollspy(".uk-navbar-container", options);
-        </script>
         <?php $view->render("footer"); ?>
     </body>
 </html>

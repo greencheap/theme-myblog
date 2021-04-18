@@ -19,8 +19,8 @@ return [
     ],
 
     "positions" => [
-        "navbar" => "Navbar Items",
-        "navbar-vertical" => "Navbar Vertical",
+        "navbar" => "Navbar Right",
+        "navbar-vertical" => "Navbar Left",
         "top" => "Top",
         "sidebar" => "Sidebar",
         "bottom" => "Bottom",

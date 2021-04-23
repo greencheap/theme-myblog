@@ -6,7 +6,7 @@
         <?= $view->render("head") ?>
         <?php $view->script("theme", "theme:app/bundle/app.js"); ?>
     </head>
-    <body id="isbody">
+    <body id="isbody" style="display: none">
         <header class="uk-navbar-container uk-navbar-transparent">
             <div class="uk-container" uk-navbar>
                 <div class="uk-navbar-left">

@@ -1,12 +1,15 @@
 import UIkit from "uikit";
 import Icons from "../../node_modules/uikit/dist/js/uikit-icons";
 import "../../assets/less/theme.less";
+
 window.addEventListener("load", () => {
+    var bodyElement = document.getElementById("isbody");
+    bodyElement.style.display = "block";
     UIkit.use(Icons);
 
     var options = {
         cls: "uk-animation-fade",
-        delay: 400,
+        delay: 300,
         repeat: true,
     };
     UIkit.scrollspy(".uk-navbar", options);
@@ -15,7 +18,9 @@ window.addEventListener("load", () => {
     UIkit.scrollspy(".tm-animation-item", options);
     UIkit.scrollspy(".uk-article", options);
     UIkit.scrollspy(".uk-navbar-container", options);
+});
 
+window.addEventListener("load", () => {
     const aElements = document.getElementsByTagName("a");
 
     for (let index = 0; index < aElements.length; index++) {
@@ -28,7 +33,7 @@ window.addEventListener("load", () => {
                 bodyElement.classList.add("uk-animation-fade");
                 setTimeout(() => {
                     window.location = event.target.href;
-                }, 1000);
+                }, 500);
             }
         });
     }

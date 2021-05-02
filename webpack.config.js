@@ -6,6 +6,7 @@ module.exports = {
         app: "./app/views/app",
         "node-theme": "./app/components/node-theme.vue",
         "widget-theme": "./app/components/widget-theme.vue",
+        "blog-theme": "./app/components/blog-theme.vue",
     },
     output: {
         path: path.resolve(__dirname, "./app/bundle"),
@@ -23,11 +24,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: [
-                    { loader: "style-loader" },
-                    { loader: "css-loader" },
-                    { loader: "less-loader" },
-                ],
+                use: [{ loader: "style-loader" }, { loader: "css-loader" }, { loader: "less-loader" }],
             },
         ],
     },

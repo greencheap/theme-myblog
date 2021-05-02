@@ -64,6 +64,10 @@ return [
             $view->script("widget-theme", "theme:app/bundle/widget-theme.js", "widget-edit");
         },
 
+        "view.scripts" => function ($event, $scripts) {
+            $scripts->register("blog-theme", "theme:app/bundle/blog-theme.js", "~post-edit");
+        },
+
         "view.layout" => function ($event, $view) use ($app) {
             if ($app->isAdmin()) {
                 return;

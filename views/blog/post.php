@@ -9,7 +9,10 @@ $lastPost = $theme_blog->getlastPost();
     <div class="uk-container uk-container-xsmall">
         <div class="uk-margin uk-flex uk-flex-middle uk-flex-between">
             <div>
-                <p class="uk-text-meta">
+                <p class="uk-text-meta uk-flex uk-flex-middle">
+                    <?php if ($post->get("theme.youtube_url")): ?>
+                        <i uk-icon="play-circle" class="uk-margin-small-right" uk-tooltip="<?= __("Video Content") ?>"></i>
+                    <?php endif; ?>
                     <?= __("Written by %name% on %date%", ["%name%" => $this->escape($post->user->name), "%date%" => '<time datetime="' . $post->date->format(\DateTime::ATOM) . '" v-cloak>{{ "' . $post->date->format(\DateTime::ATOM) . '" | date("longDate") }}</time>']) ?>
                 </p>
             </div>
@@ -38,13 +41,33 @@ $lastPost = $theme_blog->getlastPost();
         <?php endif; ?>
     </div>
 
-    <?php if ($image = $post->get("image.src")): ?>
+    <?php if ($post->get("theme.youtube_url")): ?>
+        <div class="uk-margin-large">
+            <iframe width="100%" height="600" src="<?= $post->get("theme.youtube_url") ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    <?php endif; ?>
+
+    <?php if (!$post->get("theme.youtube_url") && $image = $post->get("image.src")): ?>
         <img src="<?= $image ?>" alt="<?= $post->get("image.alt") ?>" width="100%">
     <?php endif; ?>
 
     <div class="uk-container uk-container-xsmall uk-margin">
         <div class="uk-margin tm-text"><?= $post->content ?></div>
 
+
+        <?php if($post->get('theme.sources')): ?>
+            <div class="uk-margin-large">
+                <h5 class="uk-h3"><?= __('Sources List') ?></h5>
+                <ul class="uk-list uk-list-bullet uk-list-large">
+                    <?php foreach($post->get('theme.sources') as $source): ?>
+                        <li>
+                            <a href="<?= $source['url'] ?>" target="_blank" rel="nofollow" title="<?= $source['title'] ?>"><?= $source['title'] ?></a>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif ?>
+        
         <div class="uk-margin-large uk-child-width-1-2@m" uk-grid>
             <div>
             <?php if ($previousPost): ?>
